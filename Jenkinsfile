@@ -1,19 +1,28 @@
 pipeline {
     agent any
 
+    tools {
+        nodejs 'NodeJS_24'  // ต้องตรงกับ Global Tool Configuration ใน Jenkins
+    }
+
     stages {
         stage('Build') {
             steps {
-                git 'https://github.com/aeff60/simple-express-app.git'
+                git 'https://github.com/kornphongP/sonar-qube-jenkins'
                 bat "npm install"
             }
         }
 
-        stage('Scan') {
+        stage('SonarQube Scan') {
             steps {
-                withSonarQubeEnv(installationName: 'sq1') {
-                    bat "npm install sonar-scanner"
-                    bat 'npx sonar-scanner -X -X -Dsonar.projectKey=mywebapp'
+                withSonarQubeEnv('sonar-scanner') { // ชื่อ SonarQube server ใน Jenkins
+                    bat '''
+                        npx sonar-scanner \
+                            -Dsonar.projectKey=simple-express-app \
+                            -Dsonar.sources=. \
+                            -Dsonar.host.url=http://localhost:9001 \
+                            -Dsonar.login=sqp_13c196468557b0beb568f13ce8d7c501147ebfdc
+                    '''
                 }
             }
         }
