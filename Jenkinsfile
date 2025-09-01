@@ -24,7 +24,7 @@ pipeline {
                             -Dsonar.projectKey=sonar-qube-jenkins \
                             -Dsonar.sources=. \
                             -Dsonar.host.url=http://host.docker.internal:9001 \
-                            -Dsonar.login=sqp_13c196468557b0beb568f13ce8d7c501147ebfdc
+                            -Dsonar.login=sqp_248247b95c75b21dadf711b53dc4c70c2e46ba61
                     '''
                 }
             }
