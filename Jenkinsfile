@@ -11,14 +11,14 @@ pipeline {
             steps {
                git branch: 'main',
                   url: 'https://github.com/kornphongP/sonar-qube-jenkins.git'
-                  bat "npm install"
+                  sh "npm install"
             }
         }
 
         stage('SonarQube Scan') {
             steps {
                 withSonarQubeEnv('sonar-scanner') { // ชื่อ SonarQube server ใน Jenkins
-                    bat '''
+                    sh '''
                         npx sonar-scanner \
                             -Dsonar.projectKey=simple-express-app \
                             -Dsonar.sources=. \
