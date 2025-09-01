@@ -3,6 +3,7 @@ pipeline {
 
     tools {
         nodejs 'NodeJS_24'  // ต้องตรงกับ Global Tool Configuration ใน Jenkins
+        git 'Default'
     }
 
     stages {
