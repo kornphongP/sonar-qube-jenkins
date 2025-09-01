@@ -18,7 +18,7 @@ pipeline {
 
         stage('SonarQube Scan') {
             steps {
-                withSonarQubeEnv('sonar-scanner') { // ชื่อ SonarQube server ใน Jenkins
+                withSonarQubeEnv('SonarQubeServer') { // ชื่อ SonarQube server ใน Jenkins
                     sh '''
                         npx sonar-scanner \
                             -Dsonar.projectKey=sonar-qube-jenkins \
