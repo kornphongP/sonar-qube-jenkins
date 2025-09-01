@@ -20,7 +20,7 @@ pipeline {
                 withSonarQubeEnv('sonar-scanner') { // ชื่อ SonarQube server ใน Jenkins
                     sh '''
                         npx sonar-scanner \
-                            -Dsonar.projectKey=simple-express-app \
+                            -Dsonar.projectKey=sonar-qube-jenkins \
                             -Dsonar.sources=. \
                             -Dsonar.host.url=http://localhost:9001 \
                             -Dsonar.login=sqp_13c196468557b0beb568f13ce8d7c501147ebfdc
