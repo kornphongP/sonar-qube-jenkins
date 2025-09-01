@@ -23,7 +23,7 @@ pipeline {
                         npx sonar-scanner \
                             -Dsonar.projectKey=sonar-qube-jenkins \
                             -Dsonar.sources=. \
-                            -Dsonar.host.url=http://localhost:9001 \
+                            -Dsonar.host.url=http://host.docker.internal:9001 \
                             -Dsonar.login=sqp_13c196468557b0beb568f13ce8d7c501147ebfdc
                     '''
                 }
