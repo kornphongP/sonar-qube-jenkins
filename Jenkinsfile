@@ -9,8 +9,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                git 'https://github.com/kornphongP/sonar-qube-jenkins.git'
-                bat "npm install"
+               git branch: 'main',
+                  url: 'https://github.com/kornphongP/sonar-qube-jenkins.git'
+                  bat "npm install"
             }
         }
 
